@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "target": "es5",
+    },
+    "include": [
+        "./src/index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
