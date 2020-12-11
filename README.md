@@ -27,9 +27,9 @@
     - [ ] 上传图片 对图片进行裁剪 (v0.0.4)  
 *在上述功能完成以后就会修改版本号为1.0.0 进行`npm`官网发布*
 ## 6.参与贡献
-非常欢迎你的加入！提一个 [提一个Issue](https://github.com/xd20110642/DD-Watermark/issues/new) 或者提交一个 Pull Request,如果有可能也希望你能fork
+非常欢迎你的加入！[提一个Issue](https://github.com/xd20110642/DD-Watermark/issues/new) 或者提交一个 Pull Request,如果有可能也希望你能fork
 ## 7.联系作者
-`QQ:790057064 备注:来自GitHub`
+`QQ:790057064 备注:来自GitHub`  
 `微信:xd790057064 备注:来自GitHub`
 ## 8.开源协议
 MIT © Xiang Dong
