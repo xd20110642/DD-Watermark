@@ -78,3 +78,5 @@ class Watermark{
 
     }
 }
+
+(window as any).Watermark =  Watermark
