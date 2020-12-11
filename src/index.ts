@@ -1,15 +1,6 @@
-
+import Options from './interface/options';
 interface HTMLInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
-}
-
-interface Options{
-    text?:string,
-    color?:string,
-    fontSize?:string,
-    x?:number,
-    y?:number,
-    textAlign?:CanvasTextAlign,
 }
 
 class Watermark{
@@ -19,7 +10,7 @@ class Watermark{
         this.dom=dom;
         this.option=option
     }
-    async handleClick(){
+    async handleWatermarkImage(){
         try{
           const img=await this.handleReadImage();      
           const canvasImage=await this.handleCreatCanvas(img);
