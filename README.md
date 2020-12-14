@@ -1,6 +1,8 @@
 # DD.WaterMark-一键给图片加水印插件
 <div align="center"> 
 <img src="./images/logo.png" style="display:block;margin-bottom:10px">
+</div>
+<div align="center"> 
 <img src="https://img.shields.io/badge/version-v0.0.3-FFAA40">
 <img src="https://img.shields.io/badge/license-MIT-greed">
 <img src="https://img.shields.io/badge/languages-Typescript-3183C4">
