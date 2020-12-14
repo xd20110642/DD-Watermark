@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>压缩图片demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="button">点击我测试</div>
+    <div id="box"></div>
+    <script src="../dist/index.js"></script>
+    <script>
+        var option = {
+        
+        }
+        console.log("option", option)
+        var wm = new Watermark('box', option)
+        document.querySelector('#button').onclick = () => {
+            wm.handleCompressInit()
+        }
+    </script>
+</body>
+
+</html>

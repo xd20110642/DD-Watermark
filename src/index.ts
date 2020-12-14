@@ -1,5 +1,5 @@
 import Options from './interface/options';
-import {handleHasWidthAndHeight} from "./tools/index"
+import {handleHasKey} from "./tools/index"
 interface HTMLInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
 }
@@ -11,6 +11,9 @@ class Watermark{
         this.dom=dom;
         this.option=option
     }
+    /**
+     * 绘制水印图片
+     */
     public async handleWatermarkImage(){
         try{
           const img=await this.handleReadImage();      
@@ -18,7 +21,19 @@ class Watermark{
           const canvasText=await this.handleWatermark(canvasImage,this.option);
           document.querySelector(`#${this.dom}`).appendChild(canvasText);
         }catch(e){
-            console.error(e)
+            console.error('绘制水印图片失败',e)
+        }
+    }
+    /**
+     * 压缩图片大小
+     */
+    public async handleCompressInit(){
+        try{
+            const img=await this.handleReadImage();  
+            const imgDom=await this.handleCompressImage(img,this.option);
+            document.querySelector(`#${this.dom}`).appendChild(imgDom);
+        }catch(e){
+            console.log("压缩失败",e)
         }
     }
     /**
@@ -56,7 +71,7 @@ class Watermark{
             const {width,height}=option;
             let wtemp,htemp;
             let canvas:HTMLCanvasElement=document.createElement('canvas');
-            if(handleHasWidthAndHeight(width) && handleHasWidthAndHeight(height)){
+            if(handleHasKey(width) && handleHasKey(height)){
                 if(img.width > width && img.height > height){//如果图片的宽高均大于了我们设置的宽高 就设置等比压缩
                     r=img.width/width;//200/100 2倍压缩比
                     if((img.height/r)> height){
@@ -88,7 +103,7 @@ class Watermark{
             }
             
             let ctx:CanvasRenderingContext2D=canvas.getContext('2d');
-            if(handleHasWidthAndHeight(width) && handleHasWidthAndHeight(height)){
+            if(handleHasKey(width) && handleHasKey(height)){
                 ctx.drawImage(img,0,0,canvas.width,canvas.height,);
             }else{
                 ctx.drawImage(img,0,0,img.width,img.height);
@@ -113,6 +128,34 @@ class Watermark{
 
         })
 
+    }
+    /**
+     * 压缩图片
+     * @param img 
+     * @param options 
+     */
+    public handleCompressImage(img:HTMLImageElement,option:Options):Promise<HTMLImageElement>{
+        return new Promise((resolve,reject) => {
+            const {imgWidth,imgHeight}=option;
+            let canvas:HTMLCanvasElement=document.createElement('canvas');
+            let ctx=canvas.getContext('2d');
+                // 定义 canvas 大小，也就是压缩后下载的图片大小 如果没有传入自定义宽高 那么就是展示全部
+            if(handleHasKey(imgWidth) && handleHasKey(imgHeight)){
+                    canvas.width=imgWidth;
+                    canvas.height=imgHeight;
+                    ctx.drawImage(img,0,0,imgWidth,imgHeight);
+            }else{
+                canvas.width=img.width;
+                canvas.height=img.height;
+                ctx.drawImage(img,0,0);//绘制原图
+            }
+            let _img=document.createElement('img');
+            _img.onload=() => {
+                    resolve(_img);
+            }
+            _img.src=canvas.toDataURL(`image/png`)
+            
+        })
     }
 }
 

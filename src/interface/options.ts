@@ -7,6 +7,8 @@ interface Options{
     y?:number,
     width?:number,
     height?:number,
+    imgWidth?:number,
+    imgHeight?:number,
     textAlign?:CanvasTextAlign,
 }
 
