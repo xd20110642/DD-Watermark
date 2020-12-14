@@ -5,6 +5,8 @@ interface Options{
     fontSize?:string,
     x?:number,
     y?:number,
+    width?:number,
+    height?:number,
     textAlign?:CanvasTextAlign,
 }
 
