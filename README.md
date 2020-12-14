@@ -1,4 +1,10 @@
 # DD.WaterMark-一键给图片加水印插件
+<div align="center"> 
+<img src="https://img.shields.io/badge/version-v0.0.3-FFAA40">
+<img src="https://img.shields.io/badge/license-MIT-greed">
+<img src="https://img.shields.io/badge/languages-Typescript-3183C4">
+</div>
+
 ## 1.项目介绍
 1. `DD.WaterMark`是什么?  
 该插件是基于Typescript开发的一键生成图片水印的插件，可以实现上传图片添加水印预览的效果。
@@ -48,7 +54,7 @@
 `QQ:790057064 备注:来自GitHub`  
 `微信:xd790057064 备注:来自GitHub`
 ## 8.开源协议
-MIT © Xiang Dong
+[MIT](LICENSE) © Xiang Dong
 
 
     
